@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Heure de Tokyo</title>
+</head>
+<body>
+  <h1>Heure de Tokyo</h1>
+  <p id="heureTokyo"></p>
+
+  <script>
+    function afficherHeureTokyo() {
+      // Fuseau horaire de Tokyo
+      const tokyoTimeZone = 'Asia/Tokyo';
+
+      // Obtenir l'heure actuelle
+      const date = new Date();
+
+      // Options pour l'affichage de la date et de l'heure
+      const options = {
+        timeZone: tokyoTimeZone,
+        hour12: false, // Affichage en format 24 heures
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+      };
+
+      // Formatter la date et l'heure
+      const formattedTime = date.toLocaleTimeString('en-US', options);
+
+      // Afficher l'heure de Tokyo sur la page web
+      document.getElementById('heureTokyo').textContent = formattedTime;
+    }
+
+    // Appeler la fonction une première fois pour afficher l'heure immédiatement
+    afficherHeureTokyo();
+
+    // Rafraîchir l'heure de Tokyo toutes les secondes
+    setInterval(afficherHeureTokyo, 1000);
+  </script>
+</body>
+</html>
